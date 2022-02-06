@@ -1,0 +1,108 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[czech]{babel}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{textcomp}
+% rovnice zarovnávat doleva
+\usepackage[fleqn]{amsmath}
+
+% neodsazovat nové odstavce
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%
+	\begin{titlepage}
+		\begin{center}
+			\includegraphics[width=0.5\linewidth]{img/logo.pdf}
+			\vspace{3cm}
+			
+			\LARGE{Počítačové komunikace a sítě 2021/2022}
+			\vspace{1cm}
+			
+			\LARGE\textbf{HTTP server}
+			
+			\vspace*{\fill}
+			\large{Ondřej Mach (xmacho12)}
+		\end{center}
+	\end{titlepage}
+	
+	
+%%%%%%%%%%%%%%%% THE ACTUAL DOCUMENT %%%%%%%%%%%%%%%%
+
+	\section{Základy}
+		Pro načtení signálu byl použit modul \texttt{wavfile} z knihovny \texttt{scipy.io}.
+		Načtený signál má \textbf{45056 vzorků}.
+		Počet vzorků vydělíme vzorkovací frekvencí a získáme tím délku signálu \textbf{2.816 s}.
+		Hodnoty signálu se pohybují v rozmezí od \textbf{-1909} do \textbf{3584}.
+	
+	
+	\section{Předzpracování a rámce}
+		Signál je neprve ustředněn a normalizován.
+		
+		\begin{verbatim}
+			data = data - data.mean()
+			scale = np.abs(data).max()
+			data = data / scale
+		\end{verbatim}
+		
+		Dále je signál rozdělen na kousky o velikosti 512 pomocí metody \texttt{np.ndarray.resize}. 
+		Je vytvořena prázdná matice \texttt{frames}, ve které každý sloupec bude obsahovat jeden rámec.
+		Nakonec for cyklus projde všechny rámce a do každého zapíše konkatenaci dvou odpovídajících kousků.
+		
+		
+	
+	
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
