@@ -11,6 +11,7 @@ class Server {
     private:
         unsigned port;
         int socket_fd;
+        std::string getResponse(std::string req);
 
     public:
         std::vector<Entry> entries;
@@ -19,5 +20,4 @@ class Server {
         int init();
         int end();
         int handleConnection();
-        std::string getResponse(std::string req);
 };

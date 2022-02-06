@@ -9,17 +9,10 @@ using std::cout, std::cerr;
 using std::endl;
 using std::string;
 
-volatile int end = 0;
 
 void interruptHandler(int) {
     cerr << endl << "Exiting..." << endl;
-    //end = 1;
     exit(EXIT_SUCCESS);
-}
-
-
-string secretHandler(string) {
-    return "bruh";
 }
 
 
@@ -53,7 +46,8 @@ int main(int argc, char const *argv[]) {
     // Start the server
     srv.init();
 
-    while (!end) {
+    // Infinite loop, exited only with interrupt
+    while (true) {
         srv.handleConnection();
     }
 
