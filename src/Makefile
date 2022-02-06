@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS=-std=c++20 -pedantic -Wall -Wextra -g
+CXXFLAGS=-std=c++17 -pedantic -Wall -Wextra -g
 EXECUTABLE=hinfosvc
 OBJECTS=main.o server.o info.o
 

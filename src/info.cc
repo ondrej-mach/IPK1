@@ -73,7 +73,10 @@ float readCpuUsage() {
 
 string getCpuUsage(string) {
     readCpuUsage();
-    sleep(0.2);
+
+    // Wait for 0.2s
+    usleep(200000);
+    // Then take the next measurement
     float reading = readCpuUsage();
 
     return std::to_string(int(100.0 * reading)) + "%";
